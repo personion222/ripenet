@@ -26,6 +26,10 @@ var scalex;
 var scaley;
 var cur_thresh;
 var wrapper;
+var intervalID;
+var opacitycount;
+var opacityspeed;
+const opacityacc = 50;
 
 spinner.classList.add("spinner-border");
 spinner.classList.add("spinner-border-sm");
@@ -42,18 +46,29 @@ function sigmoid(x, c, s) {
     return 1 / (1 + Math.pow(2.718, c - 2 * c * (x - s)));
 }
 
-function append_alert(message, type, time) {
+async function remove_timeout(cont, obj, timeout, fade) {
+    await sleep(timeout);
+    opacitycount = fade * opacityacc;
+    opacityspeed = 1 / opacitycount;
+    intervalID = setInterval(function() {
+        obj.style.opacity -= opacityspeed;
+    }, opacityacc);
+    setTimeout(function() {
+        clearInterval(intervalID);
+        cont.removeChild(obj);
+    }, fade);
+}
+
+function append_alert(message, color, txt, type, time, fade) {
     wrapper = document.createElement('div');
-    wrapper.innerHTML = [
-      `<div class="alert alert-${type} alert-dismissible" role="alert">`,
-      `   <div>${message}</div>`,
-      '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
-      '</div>'
-    ].join('');
+    wrapper.innerHTML = wrapper.innerHTML.concat([
+        `<div class="alert alert-dark alert-dismissible ${type}" role="alert" data-bs-theme="dark">`,
+        `   <span class="square ${color} material-symbols-rounded">${txt}</span><div class="ripemsg">${message}</div>`,
+        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
+        '</div>'
+    ].join(''));
     top_cont.append(wrapper);
-    setTimeout(() => {
-        wrapper.remove();
-    }, time)
+    remove_timeout(wrapper, wrapper.children[0], time, fade)
 }
 
 function create_3d_arr(x, y, z) {
@@ -92,6 +107,7 @@ function inc_thresh(inc_val) {
 async function get_ripeness() {
     calculating = true;
     ripe_button.disabled = true;
+    ripe_button.innerHTML += "&nbsp";
     ripe_button.appendChild(spinner);
     aspect = video.videoWidth / video.videoHeight;
 
@@ -128,15 +144,16 @@ async function get_ripeness() {
 
     if (ripe_val > cur_thresh) {
         ripesfx.play();
-        append_alert("ripe :) " + ripe_val.toFixed(2) * 100 + "%", "warning", 2000);
+        append_alert("ripe :)", "yellow", "check_circle", "ripe", 3000, 500);
     } else {
         unripesfx.play();
-        append_alert("unripe :( " + (1 - ripe_val.toFixed(1)) * 100 + "%", "success", 2000);
+        append_alert("unripe :(", "green", "cancel", "unripe", 3000, 500);
     }
 
     calculating = false;
     ripe_button.disabled = false;
     ripe_button.removeChild(spinner);
+    ripe_button.innerHTML = ripe_button.innerHTML.substring(0, ripe_button.innerHTML.length - 8);
 }
 
 start_cam();

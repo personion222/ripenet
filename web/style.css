@@ -12,33 +12,77 @@ body {
     overflow-y: hidden;
     height: 100%;
     background-color: black;
-}
-
-button {
-    font-family: "Courier New", Courier, monospace;
+    font-family: "Noto Sans", monospace;
 }
 
 span {
-    font-family: "Courier New", Courier, monospace;
-    font-size: medium;
-    color: rgb(198, 137, 255);
+    font-size: 20px;
 }
 
 .input-group-text {
     background-color: black;
     color: white;
     border-width: 0px;
+    font-size: x-large;
 }
 
 .alert {
     opacity: 100%;
     transition: 0.5s;
-    margin-left: 40vw;
+    float: right;
     margin-right: 1vh;
     margin-top: 1vh;
     font-size: large;
-    font-family: 'Courier New', Courier, monospace;
-    color: black;
+    color: white;
+}
+
+.square {
+    position: absolute;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 3px;
+    font-size: large;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.green {
+    background-color: #00b84d;
+    outline: 3px solid #0b6d47;
+    color: #fff;
+}
+
+.yellow {
+    background-color: #ffc852;
+    outline: 3px solid #946d19;
+    color: #000;
+}
+
+.ripemsg {
+    margin-left: 40px;
+    margin-right: calc(10px + 5vw);
+    font-weight: 500;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.alert.ripe {
+    background-image: linear-gradient(to right, #000, #946d19);
+}
+
+.arrowbtn {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.spinner-border-sm {
+    color: rgb(178, 130, 255);
 }
 
 #nn-feed {
@@ -49,9 +93,8 @@ span {
     position: absolute;
     top: 0%;
     left: 0%;
-    height: 15vh;
+    height: 6.5vh;
     width: 100vw;
-    background-image: linear-gradient(rgb(15, 14, 17), transparent);
 }
 
 #cam {
@@ -67,25 +110,26 @@ span {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
-    top: 79.75%;
-    left: 49.75%;
+    top: 80%;
+    left: 50%;
     transform: translateX(-50%);
     -webkit-transform: translateX(-50%);
     border-radius: 12px;
     outline-style: solid;
     outline-color: rgb(178, 130, 255);
     outline-offset: -5px;
-    box-shadow: 12px 12px rgba(0, 0, 0, 0.75);
-    transition: 0.4s;
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.75);
+    transition: 0.3s;
+    font-size: x-large;
+    display: flex;
+    align-items: center;
 }
 
 #ripe:hover {
     outline-style: solid;
     outline-color: rgb(178, 130, 255);
-    outline-width: 5px;
-    outline-offset: 8px;
-    top: 80.125%;
-    left: 50.125%;
+    outline-width: 3px;
+    outline-offset: 5px;
     box-shadow: 4px 4px rgba(0, 0, 0, 0.75);
 }
 
@@ -93,4 +137,9 @@ span {
     position: absolute;
     margin-left: 1vh;
     margin-top: 1vh;
+}
+
+#thresh {
+    font-family: "Noto Sans Mono";
+    font-weight: 700;
 }
