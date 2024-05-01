@@ -1,0 +1,155 @@
+html {
+    height: 100%;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+body {
+    position: relative;
+    overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    height: 100%;
+    background-color: black;
+    font-family: "Noto Sans", monospace;
+}
+
+p.desc {
+    font-size: 24px;
+    color: #acacac;
+    margin: 1vh 0px 0px 1vh;
+    display: flex;
+    align-items: center;
+    text-shadow: 1px 1px #000;
+}
+
+.material-symbols-rounded {
+    font-size: inherit;
+}
+
+.input-group-text {
+    background-color: black;
+    color: white;
+    border-width: 0px;
+    font-size: max(2.75vh, 1.25vw);
+}
+
+.input-group {
+    font-size: max(3.25vh, 2vw);
+}
+
+.alert {
+    opacity: 100%;
+    transition: 0.5s;
+    float: right;
+    margin-right: 1vh;
+    width: 200px;
+    color: white;
+}
+
+.square {
+    position: absolute;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    border-radius: 3px;
+    font-size: 20px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.green {
+    background-color: #427eff;
+    outline: 3px solid #192bce;
+    color: #fff;
+}
+
+.yellow {
+    background-color: #ffc852;
+    outline: 3px solid #946d19;
+    color: #000;
+}
+
+.ripemsg {
+    font-weight: 500;
+    font-size: 24px;
+    float: inline-end;
+    align-items: center;
+}
+
+.alert.ripe {
+    background-image: linear-gradient(to right, #000, #946d19);
+}
+
+.arrowbtn {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.spinner-border-sm {
+    color: rgb(178, 130, 255);
+}
+
+#nn-feed {
+    display: hidden;
+}
+
+#top {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    height: 6.5vh;
+    width: 100vw;
+}
+
+#cam {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#ripe {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
+    top: 80%;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+    border-radius: 12px;
+    outline-style: solid;
+    outline-color: rgb(178, 130, 255);
+    outline-offset: -5px;
+    box-shadow: 8px 8px rgba(0, 0, 0, 0.75);
+    transition: 0.3s;
+    font-size: max(2.5vh, 1.5vw);
+    display: flex;
+    align-items: center;
+}
+
+#ripe:hover {
+    outline-style: solid;
+    outline-color: rgb(178, 130, 255);
+    outline-width: 3px;
+    outline-offset: 5px;
+    box-shadow: 4px 4px rgba(0, 0, 0, 0.75);
+}
+
+#thresh-widget {
+    position: absolute;
+    margin-left: 1vh;
+    margin-top: 1vh;
+}
+
+#thresh {
+    font-family: "Noto Sans Mono";
+    font-weight: 700;
+}
