@@ -64,7 +64,6 @@ function append_alert(message, color, txt, type, time, fade) {
     wrapper.innerHTML = wrapper.innerHTML.concat([
         `<div class="alert alert-dark alert-dismissible ${type}" role="alert" data-bs-theme="dark">`,
         `   <span class="square ${color} material-symbols-rounded">${txt}</span><div class="ripemsg">${message}</div>`,
-        '   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>',
         '</div>'
     ].join(''));
     top_cont.append(wrapper);

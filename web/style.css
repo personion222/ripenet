@@ -15,15 +15,28 @@ body {
     font-family: "Noto Sans", monospace;
 }
 
-span {
-    font-size: 20px;
+p.desc {
+    font-size: 24px;
+    color: #acacac;
+    margin: 1vh 0px 0px 1vh;
+    display: flex;
+    align-items: center;
+    text-shadow: 1px 1px #000;
+}
+
+.material-symbols-rounded {
+    font-size: inherit;
 }
 
 .input-group-text {
     background-color: black;
     color: white;
     border-width: 0px;
-    font-size: x-large;
+    font-size: max(2.75vh, 1.25vw);
+}
+
+.input-group {
+    font-size: max(3.25vh, 2vw);
 }
 
 .alert {
@@ -31,8 +44,7 @@ span {
     transition: 0.5s;
     float: right;
     margin-right: 1vh;
-    margin-top: 1vh;
-    font-size: large;
+    width: 200px;
     color: white;
 }
 
@@ -46,14 +58,14 @@ span {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
     border-radius: 3px;
-    font-size: large;
+    font-size: 20px;
     text-align: center;
     vertical-align: middle;
 }
 
 .green {
-    background-color: #00b84d;
-    outline: 3px solid #0b6d47;
+    background-color: #427eff;
+    outline: 3px solid #192bce;
     color: #fff;
 }
 
@@ -64,11 +76,9 @@ span {
 }
 
 .ripemsg {
-    margin-left: 40px;
-    margin-right: calc(10px + 5vw);
     font-weight: 500;
-    font-size: 20px;
-    display: flex;
+    font-size: 24px;
+    float: inline-end;
     align-items: center;
 }
 
@@ -120,7 +130,7 @@ span {
     outline-offset: -5px;
     box-shadow: 8px 8px rgba(0, 0, 0, 0.75);
     transition: 0.3s;
-    font-size: x-large;
+    font-size: max(2.5vh, 1.5vw);
     display: flex;
     align-items: center;
 }
