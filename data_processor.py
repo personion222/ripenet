@@ -55,13 +55,13 @@ def process_ann(ann):
     qoi.write(f"{ANN_IMG}/{basename(file_path)}", img_raw)
     dom.getElementsByTagName("path")[0].firstChild.nodeValue = f"{ANN_IMG}/{basename(file_path)}"
 
-    for i in range(ADULT_VAL):
+    for i in range(DUP_VAL):
         img_name_new = f"{img_name[0]}-{i}.{img_name[1]}"
         img_dir = f"{ANN_IMG}/{img_name_new}"
         if i > 0:
             angle = random.randint(0, 359)
-            bgcol = np.random.randint(0, 255, size=3)
-            scale = np.random.uniform(0.8, 1.3)
+            bgcol = np.full(3, np.random.randint(0, 128))
+            scale = np.random.uniform(0.6, 1.0)
             shift = np.random.randint(-12, 12, size=2)
 
             mod_img = effects.rotate_img(img_raw, angle, bgcol)
@@ -111,9 +111,9 @@ def process_ann(ann):
 
 
 NOISE_MAX = 36
-ADULT_VAL = 15
+DUP_VAL = 25
 
-ANN_DIR = "raw_orig/ann"
+ANN_DIR = "verified/ann"
 ANN_SAVE = "fab_qoi/ann"
 ANN_IMG = "fab_qoi/img"
 

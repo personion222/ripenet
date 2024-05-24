@@ -46,7 +46,7 @@ screen_ar = WIDTH / HEIGHT
 
 draw_coord = [0, 0]
 
-ripe_model = keras.saving.load_model("single_nets/model2n.keras", compile=True)
+ripe_model = keras.saving.load_model("single_nets/model2.keras", compile=True)
 ripe_model.summary()
 
 vid_cap = cv2.VideoCapture(0)
